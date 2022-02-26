@@ -5,12 +5,12 @@ import "errors"
 //aqui é a camada de dominio, onde tem entidades e validações internas da aplicação
 
 type User struct {
-	name  string
-	email string
+	Name  string
+	Email string
 }
 
 func (u *User) Validate() error {
-	if u.email != "" {
+	if u.Email != "" {
 		return errors.New("missing email")
 	}
 	return nil
