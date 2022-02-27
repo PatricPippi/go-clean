@@ -27,7 +27,7 @@ func (u *userRepoMock) Delete() error {
 func TestCreateUser(t *testing.T) {
 	userRepoMock := new(userRepoMock)
 	userRepoMock.On("Create", mock.AnythingOfType("*domain.User")).Return(nil)
-	userUseCase := NewUserUseCase(userRepoMock)
+	userUseCase := NewUserUseCase(userRepoMock, nil)
 	err := userUseCase.CreateUser(&domain.User{
 		Name:  "test",
 		Email: "test",

@@ -5,27 +5,35 @@ import (
 )
 
 //camada use case, camada de regras de negocio da aplicação, a camada sempre retorna e recebe um domain
+type repository interface {
+	Create(user *domain.User) error
+	Read() error
+	Update() error
+	Delete() error
+}
+type customerService interface {
+	CreateCustomer(user *domain.User) error
+}
 type UserUseCase struct {
-	repository domain.UserRepository
-	gateway    domain.UserGateway
+	repository      repository
+	customerService customerService
 }
 
-func NewUserUseCase(userRepository domain.UserRepository) *UserUseCase {
+func NewUserUseCase(userRepository repository, customerService customerService) *UserUseCase {
 	return &UserUseCase{
-		repository: userRepository,
+		repository:      userRepository,
+		customerService: customerService,
 	}
 }
 
-func (u *UserUseCase) CreateUser(user *domain.User) error {
-	err := u.gateway.CreateCustomer(user)
+func (uc *UserUseCase) CreateUser(user *domain.User) error {
+	err := uc.customerService.CreateCustomer(user)
 	if err != nil {
 		return err
 	}
-	err = u.repository.Create(user)
+	err = uc.repository.Create(user)
 	if err != nil {
 		return err
 	}
 	return nil
 }
-
-//TODO: Rest of user functions...
