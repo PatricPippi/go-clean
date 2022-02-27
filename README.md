@@ -1,17 +1,17 @@
-## SERVICE 
-Core da aplicação, não depende de outras camadas
-- ### Domain *Tipos de dados e regras internas*
-- ### UseCase *Lógicas de negócio da aplicação*
-- ### Infrastructure *implementa requisitos do usecase* 
-  - Repository *implementa drivers de banco para o usecase*
 
-## ITERFACE ADAPTERS
-Adaptam dados recebidos de fora da aplicação para o core da aplicação e vice-versa, interagem com o mundo externo
+## Domain Layer
+Core da aplicação
+  - ### Domain *Tipo de dados, regras internas e requisitos da aplicação*
+  - ### UseCase *Lógicas de negócio da aplicação*
 
-- ### Api *Cria servidor http para o mundo externo*
-  - Controller *Logica de negócio para ser utilizado por rotas, utiliza use cases* 
-  - Middleware *Middlewares*
-  - Routes *Rotas*
-  - Presenter *Dados utilizados pelo mundo externo*
-- ### gRPC *Cria servidor grpc com rpcs para o mundo externo*
-        
+## Data layer
+Serve e adapta dados ao domain layer
+  - ## Infra
+    - Repository *implementa drivers de banco para o usecase*
+    - Gateway *implementa dados externos, exemplo: microserviços, apis*
+
+## Presentation layer
+Expõe a aplicação para o mundo externo e adapta dados de request e response para domain layer
+  - ## Delivery
+    - Api Server
+    - Grpc Server

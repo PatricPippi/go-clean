@@ -3,7 +3,7 @@ package usecase
 import (
 	"testing"
 
-	"github.com/go-clean/service/domain"
+	"github.com/go-clean/domain"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
