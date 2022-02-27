@@ -1,8 +1,10 @@
 
 ## Domain Layer
 Core da aplicação
-  - ### Domain *Tipo de dados, regras internas e requisitos da aplicação*
-  - ### UseCase *Lógicas de negócio da aplicação*
+  - ### Domain 
+    *Tipo de dados, regras internas e requisitos da aplicação*
+  - ### UseCase 
+    *Lógicas de negócio da aplicação*
 
 ## Data layer
 Serve e adapta dados ao domain layer
