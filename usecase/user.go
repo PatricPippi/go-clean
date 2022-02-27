@@ -11,9 +11,11 @@ type repository interface {
 	Update() error
 	Delete() error
 }
+
 type customerService interface {
 	CreateCustomer(user *domain.User) error
 }
+
 type UserUseCase struct {
 	repository      repository
 	customerService customerService
