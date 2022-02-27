@@ -12,6 +12,6 @@ Serve e adapta dados externos ao domain layer
 ## Domain Layer
 Core da aplicação
   - ### Domain 
-    *Tipo de dados, regras internas e requisitos da aplicação*
+    *Tipos de dados e regras internas*
   - ### UseCase 
     *Lógicas de negócio da aplicação*
